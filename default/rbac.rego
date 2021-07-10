@@ -17,7 +17,7 @@
 #	* Rego comparison to other systems: https://www.openpolicyagent.org/docs/latest/comparison-to-other-systems/
 #	* Rego Iteration: https://www.openpolicyagent.org/docs/latest/#iteration
 
-package app.rbac
+package default.rbac
 
 # By default, deny requests.
 default allow = false
