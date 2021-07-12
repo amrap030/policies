@@ -25,5 +25,5 @@ bearer_token[bearer] {
 	authHeader := input.headers.authorization
 	bearerPrefix := substring(authHeader, 0, count("Bearer "))
 	lower(bearerPrefix) == "bearer "
-	bearer := substring(authHeader, count("Bearer "), -1)
+	bearer := "test"
 }
