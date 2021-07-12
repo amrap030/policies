@@ -20,8 +20,8 @@
 package global.jwt.auth
 
 bearer_token[bearer] {
-	authHeader := input.headers.authorization
+	bearer := input.headers.authorization
 	bearerPrefix := substring(authHeader, 0, count("Bearer "))
 	lower(bearerPrefix) == "bearer "
-	bearer := substring(authHeader, count("Bearer "), -1)
+	#bearer := substring(authHeader, count("Bearer "), -1)
 }
