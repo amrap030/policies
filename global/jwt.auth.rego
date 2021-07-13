@@ -21,7 +21,7 @@ package global.jwt.auth
 
 payload[state] {
 	[valid, header, payload] := io.jwt.decode_verify(bearer_token, {"cert": "certificate"})
-	state := valid
+	state := header
 }
 
 bearer_token := bearer {
