@@ -19,9 +19,17 @@
 
 package global.jwt.auth
 
-bearer_token[bearer] {
-	bearer := input.headers.authorization
-	#bearerPrefix := substring(authHeader, 0, count("Bearer "))
-	#lower(bearerPrefix) == "bearer "
-	#bearer := substring(authHeader, count("Bearer "), -1)
+payload[j] {
+	[valid, header, payload] := io.jwt.decode_verify(bearer_token, {"cert": data.common.certificate})
+
+	valid
+	j := payload
 }
+
+bearer_token := bearer {
+	bearer := input.headers.authorization
+}
+
+#bearerPrefix := substring(authHeader, 0, count("Bearer "))
+#lower(bearerPrefix) == "bearer "
+#bearer := substring(authHeader, count("Bearer "), -1)
