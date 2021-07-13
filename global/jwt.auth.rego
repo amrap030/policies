@@ -37,9 +37,8 @@ oWgYufC89m2ROc2G877DNdlcKQF5bO1dC9zMB3ZNBDleRjL/op18k5C6uay2rLEb
 5Amlg9MMzHR0Yt/WNsewUmhwZi+oArfEl5XONZmtBYTs5jIgkOwsDPcZVg==
 -----END CERTIFICATE-----`
 
-payload[state] {
+payload[valid] {
 	[valid, header, payload] := io.jwt.decode_verify(bearer_token, {"cert": certificate})
-	state := header
 }
 
 bearer_token := bearer {
