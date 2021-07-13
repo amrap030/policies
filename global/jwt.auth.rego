@@ -24,7 +24,7 @@ MIICnTCCAYUCBgF4FRtFXTANBgkqhkiG9w0BAQsFADASMRAwDgYDVQQDDAdQUk9DRUVEMB4XDTIxMDMw
 -----END CERTIFICATE-----`
 
 payload[valid] {
-	[valid, header, payload] := io.jwt.decode_verify(bearer_token, {"cert": certificate})
+	[valid, header, payload] := io.jwt.decode_verify(bearer_token, {"cert": data.common.certificate})
 }
 
 bearer_token := bearer {
