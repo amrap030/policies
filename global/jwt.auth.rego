@@ -29,13 +29,13 @@ HZOrjVes5JAS2T4cpR656s4+n8mkSxfFB6j1PLk4uGAhNBLy7swIt+doEkkbYtux
 MwIDAQAB
 -----END PUBLIC KEY-----`
 
-payload[toime] {
-	valid := io.jwt.verify_rs256(bearer_token, certificate)
+payload[valid] {
+	[valid, header, payload] := io.jwt.decode_verify(bearer_token, {"cert": certificate, "aud": "proceed-ms-backend"})
 	valid
-	[header, payload, _] := io.jwt.decode(bearer_token)
-	payload.azp == "proceed-ms-backend"
-	payload.iss == "http://localhost:8080/auth/realms/proceed"
-	toime := time.now_ns()
+	#[header, payload, _] := io.jwt.decode(bearer_token)
+	#payload.azp == "proceed-ms-backend"
+	#payload.iss == "http://localhost:8080/auth/realms/proceed"
+	#payload.exp >= time.now_ns()
 }
 
 bearer_token := bearer {
