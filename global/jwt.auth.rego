@@ -30,7 +30,7 @@ MwIDAQAB
 -----END PUBLIC KEY-----`
 
 payload[payload] {
-	output := io.jwt.verify_rs256(bearer_token, certificate)
+	valid := io.jwt.verify_rs256(bearer_token, certificate)
 	valid
 	[header, payload, _] := io.jwt.decode(bearer_token)
 }
