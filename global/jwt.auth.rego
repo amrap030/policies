@@ -35,7 +35,7 @@ payload[payload] {
 	[header, payload, _] := io.jwt.decode(bearer_token)
 	payload.azp == "proceed-ms-backend"
 	payload.iss == "http://localhost:8080/auth/realms/proceed"
-	payload.exp >= time.now_ns()
+	#payload.exp >= time.now_ns()
 }
 
 bearer_token := bearer {
