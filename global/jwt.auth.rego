@@ -29,8 +29,10 @@ HZOrjVes5JAS2T4cpR656s4+n8mkSxfFB6j1PLk4uGAhNBLy7swIt+doEkkbYtux
 MwIDAQAB
 -----END PUBLIC KEY-----`
 
-payload[valid] {
-	[valid, header, payload] := io.jwt.decode_verify(bearer_token, {"cert": certificate, "alg": "RS256"})
+payload[payload] {
+	output := io.jwt.verify_rs256(bearer_token, certificate)
+	valid
+	[header, payload, _] := io.jwt.decode(bearer_token)
 }
 
 bearer_token := bearer {
