@@ -19,8 +19,12 @@
 
 package global.jwt.auth
 
+certificate = `-----BEGIN CERTIFICATE-----
+MIICnTCCAYUCBgF4FRtFXTANBgkqhkiG9w0BAQsFADASMRAwDgYDVQQDDAdQUk9DRUVEMB4XDTIxMDMwOTAzNDgzMloXDTMxMDMwOTAzNTAxMlowEjEQMA4GA1UEAwwHUFJPQ0VFRDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJNPjmlijoG4Wt8TP9xUkx+fjLpTo7AXbHsXNp8LNYLX2/dAo/5aT587NHafK9gP470aUSr8BTpWQDXdDFUjE5Uk7N+4O4pRjnItVUHUoWNfOSUYRCIYjZrXJIjzBLHOIuZqXHZwjVevqvwrnJ4vWojpcqRt1s5P0jsZ7Cxi677PZp6j2PPRL6qsCs5v4gTIiSNPA8LnY42D1ArTEYDS9YpYc1U5Slje15ASWE5FSGJYJxOshaji9Rv+p8rmzdbqiLnOCZ3kjTmNh/C8W4DEYB2Tq41XrOSQEtk+HKUeuerOPp/JpEsXxQeo9Ty5OLhgITQS8u7MCLfnaBJJG2LbsTMCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAZyrcmUMCTPPKVCpSRgVP5MBlq18lHzcF4olo2fgbNO65KrKtK6+QLgt0fn1/x4Il2HjuTR17pusEnLxB7Gk8RUh+XOvrAcDZuesQaZL/5Fs/jSetC+8s9I7Fe9Q+MRala+duOjc5QcfHAaSBvfMgzi2NnykGEAJ02zn6yvlu+eWu0lYxJfYYoOyvVElsgzG+jvteariuxYQ5TiYpUtlgglgnmLr8EAz0IBzT3nNjKxNIxFKEi/w1gAY8CX2thhLNGkik0+lmvcFFqYjVJdQrjoqHEkyBoM9aRUxGnZg/w+0WDIu6wYwLyuOBrTjceFnnUAOroRqdQnBRnHsRih2YYg==
+-----END CERTIFICATE-----`
+
 payload[valid] {
-	[valid, header, payload] := io.jwt.decode_verify(bearer_token, {"cert": data.common.certificate})
+	[valid, header, payload] := io.jwt.decode_verify(bearer_token, {"cert": certificate})
 }
 
 bearer_token := bearer {
