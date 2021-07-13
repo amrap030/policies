@@ -19,11 +19,10 @@
 
 package global.jwt.auth
 
-payload[j] {
+payload[valid] {
 	[valid, header, payload] := io.jwt.decode_verify(bearer_token, {"cert": data.common.certificate})
-
-	valid
-	j := payload
+	#valid
+	#j := payload
 }
 
 bearer_token := bearer {
