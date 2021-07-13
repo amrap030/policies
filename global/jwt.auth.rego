@@ -20,7 +20,7 @@
 package global.jwt.auth
 
 payload[payload] {
-	[valid, header, payload] := io.jwt.decode(bearer_token)
+	[header, payload, sig] := io.jwt.decode(bearer_token)
 	#valid
 	#j := payload
 }
