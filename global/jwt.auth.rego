@@ -31,7 +31,7 @@ MwIDAQAB
 
 payload[payload] {
 	valid := io.jwt.verify_rs256(bearer_token, certificate)
-	not valid
+	valid
 	[header, payload, _] := io.jwt.decode(bearer_token)
 }
 
