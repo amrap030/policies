@@ -19,13 +19,18 @@
 
 package global.jwt.auth
 
-certificate = `-----BEGIN CERTIFICATE-----
-MIICnTCCAYUCBgF4FRtFXTANBgkqhkiG9w0BAQsFADASMRAwDgYDVQQDDAdQUk9DRUVEMB4XDTIxMDMwOTAzNDgzMloXDTMxMDMwOTAzNTAxMlowEjEQMA4GA1UEAwwHUFJPQ0VFRDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJNPjmlijoG4Wt8TP9xUkx+fjLpTo7AXbHsXNp8LNYLX2/dAo/5aT587NHafK9gP470aUSr8BTpWQDXdDFUjE5Uk7N+4O4pRjnItVUHUoWNfOSUYRCIYjZrXJIjzBLHOIuZqXHZwjVevqvwrnJ4vWojpcqRt1s5P0jsZ7Cxi677PZp6j2PPRL6qsCs5v4gTIiSNPA8LnY42D1ArTEYDS9YpYc1U5Slje15ASWE5FSGJYJxOshaji9Rv+p8rmzdbqiLnOCZ3kjTmNh/C8W4DEYB2Tq41XrOSQEtk+HKUeuerOPp/JpEsXxQeo9Ty5OLhgITQS8u7MCLfnaBJJG2LbsTMCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAZyrcmUMCTPPKVCpSRgVP5MBlq18lHzcF4olo2fgbNO65KrKtK6+QLgt0fn1/x4Il2HjuTR17pusEnLxB7Gk8RUh+XOvrAcDZuesQaZL/5Fs/jSetC+8s9I7Fe9Q+MRala+duOjc5QcfHAaSBvfMgzi2NnykGEAJ02zn6yvlu+eWu0lYxJfYYoOyvVElsgzG+jvteariuxYQ5TiYpUtlgglgnmLr8EAz0IBzT3nNjKxNIxFKEi/w1gAY8CX2thhLNGkik0+lmvcFFqYjVJdQrjoqHEkyBoM9aRUxGnZg/w+0WDIu6wYwLyuOBrTjceFnnUAOroRqdQnBRnHsRih2YYg==
------END CERTIFICATE-----`
+certificate = `-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAk0+OaWKOgbha3xM/3FST
+H5+MulOjsBdsexc2nws1gtfb90Cj/lpPnzs0dp8r2A/jvRpRKvwFOlZANd0MVSMT
+lSTs37g7ilGOci1VQdShY185JRhEIhiNmtckiPMEsc4i5mpcdnCNV6+q/Cucni9a
+iOlypG3Wzk/SOxnsLGLrvs9mnqPY89EvqqwKzm/iBMiJI08DwudjjYPUCtMRgNL1
+ilhzVTlKWN7XkBJYTkVIYlgnE6yFqOL1G/6nyubN1uqIuc4JneSNOY2H8LxbgMRg
+HZOrjVes5JAS2T4cpR656s4+n8mkSxfFB6j1PLk4uGAhNBLy7swIt+doEkkbYtux
+MwIDAQAB
+-----END PUBLIC KEY-----`
 
 payload[valid] {
-	[valid, header, payload] := io.jwt.decode_verify(bearer_token, {"cert": certificate, "aud": "proceed-ms-backend"})
-	valid
+	[valid, header, payload] := io.jwt.decode_verify(bearer_token, {"cert": certificate})
 	#[header, payload, _] := io.jwt.decode(bearer_token)
 	#payload.azp == "proceed-ms-backend"
 	#payload.iss == "http://localhost:8080/auth/realms/proceed"
