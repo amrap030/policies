@@ -30,7 +30,7 @@ MwIDAQAB
 -----END PUBLIC KEY-----`
 
 payload[valid] {
-	[valid, header, payload] := io.jwt.decode_verify(bearer_token, {"cert": certificate, "aud": "proceed-ms-backend"})
+	[valid, header, payload] := io.jwt.decode_verify(bearer_token, {"cert": certificate, "aud": ["proceed-ms-backend", "account"]})
 	valid
 	#[header, payload, _] := io.jwt.decode(bearer_token)
 	#payload.azp == "proceed-ms-backend"
