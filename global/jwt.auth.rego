@@ -20,11 +20,12 @@
 package global.jwt.auth
 
 payload[payload] {
-	[valid, header, payload] := io.jwt.decode_verify(bearer_token, {"cert": data.common.certificate, "aud": "proceed-ms-backend"})
-	#[header, payload, _] := io.jwt.decode(bearer_token)
-	#payload.azp == "proceed-ms-backend"
-	#payload.iss == "http://localhost:8080/auth/realms/proceed"
-	#payload.exp >= time.now_ns()
+	[valid, header, payload] := io.jwt.decode_verify(bearer_token, {
+		"cert": data.common.certificate,
+		"aud": "proceed-ms-backend",
+		"azp": "proceed-ms-backend",
+		"iss": "http://localhost:8080/auth/realms/proceed",
+	})
 }
 
 bearer_token := bearer {
