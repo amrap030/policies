@@ -19,8 +19,22 @@
 
 package global.jwt.auth
 
-payload[payload] {
-	[valid, header, payload] := io.jwt.decode_verify(bearer_token, {"cert": data.common.certificate, "aud": "proceed-ms-backend"})
+certificate = `-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAk0+OaWKOgbha3xM/3FST
+H5+MulOjsBdsexc2nws1gtfb90Cj/lpPnzs0dp8r2A/jvRpRKvwFOlZANd0MVSMT
+lSTs37g7ilGOci1VQdShY185JRhEIhiNmtckiPMEsc4i5mpcdnCNV6+q/Cucni9a
+iOlypG3Wzk/SOxnsLGLrvs9mnqPY89EvqqwKzm/iBMiJI08DwudjjYPUCtMRgNL1
+ilhzVTlKWN7XkBJYTkVIYlgnE6yFqOL1G/6nyubN1uqIuc4JneSNOY2H8LxbgMRg
+HZOrjVes5JAS2T4cpR656s4+n8mkSxfFB6j1PLk4uGAhNBLy7swIt+doEkkbYtux
+MwIDAQAB
+-----END PUBLIC KEY-----`
+
+payload[valid] {
+	[valid, header, payload] := io.jwt.decode_verify(bearer_token, {"cert": certificate, "aud": "proceed-ms-backend"})
+	#[header, payload, _] := io.jwt.decode(bearer_token)
+	#payload.azp == "proceed-ms-backend"
+	#payload.iss == "http://localhost:8080/auth/realms/proceed"
+	#payload.exp >= time.now_ns()
 }
 
 bearer_token := bearer {
