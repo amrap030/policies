@@ -25,7 +25,7 @@ import data.global.jwt.auth
 default allow = false
 
 show_payload[pload] {
-	pload := payload_data
+	pload := auth.payload_data
 }
 
 # Allow admins to do anything.
