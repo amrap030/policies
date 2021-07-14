@@ -19,6 +19,8 @@
 
 package app.tenants.tenant1.rbac
 
+import global.jwt.auth
+
 # By default, deny requests.
 default allow = false
 
@@ -40,6 +42,10 @@ allow {
 	# unless user location is outside US
 	country := data.tenants.tenant1.users[input.user].location.country
 	country == "US"
+}
+
+show_payload[pload] {
+	pload := payload
 }
 
 # user_is_admin is true if...
