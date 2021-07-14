@@ -4,8 +4,8 @@ import data.global.jwt.auth
 
 default allow = false
 
-allow {
-	1 == 1
+allow[dataa] {
+	dataa := json.unmarshal(auth.payload_data)
 }
 
 #access[_] == input.access
