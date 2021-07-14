@@ -5,7 +5,7 @@ import data.global.jwt.auth
 default allow = false
 
 allow {
-	auth.payload_data.preferred_username == "amrap030"
+	json.unmarshal(auth.payload_data).preferred_username == "amrap030"
 }
 
 #access[_] == input.access
