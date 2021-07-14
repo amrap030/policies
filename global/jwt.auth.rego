@@ -19,7 +19,7 @@
 
 package global.jwt.auth
 
-payload := payload {
+payload_data := payload {
 	[valid, header, payload] := io.jwt.decode_verify(bearer_token, {
 		"cert": data.common.certificate,
 		"aud": "proceed-ms-backend",
