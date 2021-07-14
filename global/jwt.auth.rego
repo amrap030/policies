@@ -25,7 +25,7 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAk0+OaWKOgbha3xM/3FSTH5+MulOjsBdsexc2
 
 payload[valid] {
 	[valid, header, payload] := io.jwt.decode_verify(bearer_token, {
-		"cert": certificate,
+		"cert": data.common.certificate,
 		"aud": "proceed-ms-backend",
 		"iss": "http://localhost:8080/auth/realms/proceed",
 	})
