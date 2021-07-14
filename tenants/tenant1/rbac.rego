@@ -43,7 +43,7 @@ allow {
 }
 
 show_payload[pload] {
-	pload := global.jwt.auth.payload
+	pload := global.jwt.auth.payload_data
 }
 
 # user_is_admin is true if...
