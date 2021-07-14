@@ -42,10 +42,6 @@ allow {
 	country == "US"
 }
 
-show_payload[pload] {
-	pload := global.jwt.auth.payload_data
-}
-
 # user_is_admin is true if...
 user_is_admin {
 	# for some `i`...
