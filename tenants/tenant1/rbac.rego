@@ -19,8 +19,6 @@
 
 package app.tenants.tenant1.rbac
 
-import global.jwt.auth
-
 # By default, deny requests.
 default allow = false
 
@@ -45,7 +43,7 @@ allow {
 }
 
 show_payload[pload] {
-	pload := payload
+	pload := global.jwt.auth.payload
 }
 
 # user_is_admin is true if...
