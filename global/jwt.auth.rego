@@ -24,7 +24,7 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAk0+OaWKOgbha3xM/3FSTH5+MulOjsBdsexc2
 -----END PUBLIC KEY-----`
 
 payload[valid] {
-	[valid, header, payload] := io.jwt.decode_verify(bearer_token, {"cert": data.common.certificate, "aud": "proceed-ms-backend"})
+	[valid, header, payload] := io.jwt.decode_verify(bearer_token, {"cert": certificate, "aud": "proceed-ms-backend"})
 	#[header, payload, _] := io.jwt.decode(bearer_token)
 	#payload.azp == "proceed-ms-backend"
 	#payload.iss == "http://localhost:8080/auth/realms/proceed"
