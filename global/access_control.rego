@@ -2,11 +2,10 @@ package global.access_control
 
 import data.global.jwt.auth
 
-default allow = false
+#default allow = false
 
-allow {
+allow[dataa] {
 	dataa := auth.payload_data
-	1 = 1
 }
 
 #access[_] == input.access
