@@ -19,6 +19,8 @@
 
 package global.jwt.auth
 
+default payload_data = null
+
 payload_data := payload {
 	[valid, header, payload] := io.jwt.decode_verify(bearer_token, {
 		"cert": data.common.certificate,
