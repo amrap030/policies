@@ -23,8 +23,6 @@ payload[payload] {
 	[valid, header, payload] := io.jwt.decode_verify(bearer_token, {
 		"cert": data.common.certificate,
 		"aud": "proceed-ms-backend",
-		"azp": "proceed-ms-backend",
-		"iss": "http://localhost:8080/auth/realms/proceed",
 	})
 }
 
