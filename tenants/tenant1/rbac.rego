@@ -19,8 +19,14 @@
 
 package app.tenants.tenant1.rbac
 
+import data.global.jwt.auth
+
 # By default, deny requests.
 default allow = false
+
+show_payload[pload] {
+	pload := payload_data
+}
 
 # Allow admins to do anything.
 allow {
