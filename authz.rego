@@ -5,7 +5,6 @@ package system.authz
 
 default allow = false # Reject requests by default.
 
-allow {
-	# Logic to authorize request goes here.
-	false
-}
+allow = true
+
+# Logic to authorize request goes here.
