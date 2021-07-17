@@ -6,7 +6,7 @@ package system.authz
 default allow = false # Reject requests by default.
 
 allow {
-	1 == 1
+	is_string(input.identity)
 }
 
 # Logic to authorize request goes here.
