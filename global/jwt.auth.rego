@@ -28,7 +28,7 @@ package global.jwt.auth
 # }
 
 valida[output] {
-	output := io.jwt.verify_rs256(bearer_token, "test")
+	output := io.jwt.verify_rs256(bearer_token, data.common.certificate)
 }
 
 bearer_token := bearer {
