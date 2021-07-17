@@ -20,13 +20,13 @@
 package global.jwt.auth
 
 payload_data[valid] {
-	[valid, header, payload] := io.jwt.decode_verify(input.headers.authorization, {
+	[valid, header, payload] := io.jwt.decode_verify(input.identity, {
 		"cert": data.common.certificate,
 		"aud": "proceed-ms-backend",
 		"iss": "http://localhost:8080/auth/realms/proceed",
 	})
 }
 
-bearer_token := bearer {
-	bearer := input.headers.authorization
-}
+# bearer_token := bearer {
+# 	bearer := input.headers.authorization
+# }
