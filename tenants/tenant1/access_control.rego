@@ -5,7 +5,7 @@ import data.global.jwt.auth
 default allow = false
 
 allow {
-	auth.payload_data.preferred_username == "amrap030"
+	auth.payload_data.sub == "2862dda7-7e40-4a70-a3fe-917fd9a2ac97"
 }
 
 #access[_] == input.access
