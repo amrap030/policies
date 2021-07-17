@@ -27,12 +27,11 @@ payload_data := payload {
 	})
 }
 
-valida[valido] {
-	# [valid, header, payload] := io.jwt.decode_verify(bearer_token, {
-	# 	"cert": data.common.certificate,
-	# 	"aud": "proceed-ms-backend",
-	# })
-	valido := "kevin"
+valida[valid] {
+	[valid, header, payload] := io.jwt.decode_verify(bearer_token, {
+		"cert": data.common.certificate,
+		"aud": "proceed-ms-backend",
+	})
 }
 
 bearer_token := bearer {
