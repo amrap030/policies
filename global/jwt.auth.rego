@@ -31,7 +31,6 @@ valida[valid] {
 	[valid, header, payload] := io.jwt.decode_verify(bearer_token, {
 		"cert": data.common.certificate,
 		"aud": "proceed-ms-backend",
-		"iss": "http://host.docker.internal:8080/auth/realms/proceed",
 	})
 }
 
