@@ -19,13 +19,13 @@
 
 package global.jwt.auth
 
-payload_data := payload {
-	[valid, header, payload] := io.jwt.decode_verify(input.headers.authorization, {
-		"cert": data.common.certificate,
-		"aud": "proceed-ms-backend",
-		"iss": "http://host.docker.internal:8080/auth/realms/proceed",
-	})
-}
+# payload_data := payload {
+# 	[valid, header, payload] := io.jwt.decode_verify(input.headers.authorization, {
+# 		"cert": data.common.certificate,
+# 		"aud": "proceed-ms-backend",
+# 		"iss": "http://host.docker.internal:8080/auth/realms/proceed",
+# 	})
+# }
 
 valida[output] {
 	output := io.jwt.verify_rs256(bearer_token, data.common.certificate)
